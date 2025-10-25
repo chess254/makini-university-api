@@ -1,5 +1,5 @@
 package com.makiniuniversity.entity;
 
-public class PaymentStatus {
-    
+public enum PaymentStatus {
+    SUCCESS, FAILED, PENDING
 }

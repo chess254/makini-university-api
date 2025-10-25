@@ -1,5 +1,5 @@
 package com.makiniuniversity.entity;
 
-public class PaymentMethod {
-    
+public enum PaymentMethod {
+    MPESA, CARD, BANK_TRANSFER
 }
