@@ -61,14 +61,24 @@ public class PaymentService {
     }
 
     public Page<PaymentResponseDTO> getPaymentsByMethod(String paymentMethod, Pageable pageable) {
-        return paymentRepository.findByPaymentMethod(paymentMethod, pageable)
-                .map(this::mapToDTO);
+        try {
+            PaymentMethod method = PaymentMethod.valueOf(paymentMethod.toUpperCase());
+            return paymentRepository.findByPaymentMethod(method, pageable)
+                    .map(this::mapToDTO);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid payment method: " + paymentMethod);
+        }
     }
 
     public Page<PaymentResponseDTO> getPaymentsByStudentAndMethod(String studentNumber, String paymentMethod,
             Pageable pageable) {
-        return paymentRepository.findByStudentNumberAndPaymentMethod(studentNumber, paymentMethod, pageable)
-                .map(this::mapToDTO);
+        try {
+            PaymentMethod method = PaymentMethod.valueOf(paymentMethod.toUpperCase());
+            return paymentRepository.findByStudentNumberAndPaymentMethod(studentNumber, method, pageable)
+                    .map(this::mapToDTO);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid payment method: " + paymentMethod);
+        }
     }
 
     private PaymentResponseDTO mapToDTO(Payment payment) {
