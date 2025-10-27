@@ -36,18 +36,18 @@ The project uses the following Maven dependencies (defined in `pom.xml`):
 See `pom.xml` for full details.
 
 ## Installation
+Ensure Java 17 and Maven are installed and working.
+
 1. **Clone repo**:
-   - `Ctrl+Shift+X`
+   - `git clone https://github.com/chess254/makini-university-api.git`
    
+3. **Navigate to cloned folder**:
+    - `cd makini-university-api`
 
-2. **Verify Java and Maven**:
-   - Open a terminal in VS Code (`Ctrl+``).
-   - Run:
-     ```bash
-     java -version
-     mvn -version
+3. **Install & run the API**:
+   - `mvn clean install`
+   - `mvn spring-boot:run`
 
-Ensure Java 17 and Maven are listed.
 
 
 ## Project Structure
@@ -88,7 +88,7 @@ src/main/resources/
 
 Clone the repository:
 ``` 
-git clone <repository-url>  # Replace with your repo URL
+git clone https://github.com/chess254/makini-university-api.git
 cd makini-university-api 
 ```
 
@@ -115,7 +115,7 @@ cd makini-university-api
         - JDBC URL: `jdbc:h2:mem:testdb`
         - Username: `sa`
         - Password: 
-
+    - Click `connect` button
     - To view sample seeded Student and Payment data, run:
         ``` 
         SELECT * FROM PUBLIC.student;
@@ -125,23 +125,22 @@ cd makini-university-api
 
 ## Testing Endpoints
 
-### Validate Student
--    POST `http://localhost:8080/api/students/validate`
+### POST endpoints: 
 
+#### Validate Student
+-    `http://localhost:8080/api/students/validate`
 -       {"studentNumber": "STU001"}
 
-### Invalid Student
--   POST `http://localhost:8080/api/students/validate`
-
+#### Invalid Student
+-   `http://localhost:8080/api/students/validate`
 -       {"studentNumber": "STU999"}
 
-### Empty Student Number
--   POST `http://localhost:8080/api/students/validate`
-
+#### Empty Student Number
+-   `http://localhost:8080/api/students/validate`
 -       {"studentNumber": ""}
 
-### New Payment
--   POST `http://localhost:8080/api/payments/notification`
+#### New Payment
+-   `http://localhost:8080/api/payments/notification`
 -       {
             "transactionId": "TX005",
             "studentNumber": "STU001",
@@ -151,9 +150,7 @@ cd makini-university-api
         }
 
 ### Duplicate Payment
--   POST `http://localhost:8080/api/payments/notification`  
-
-
+-   `http://localhost:8080/api/payments/notification`  
 -       {
             "transactionId": "TX001",
             "studentNumber": "STU001",
@@ -163,8 +160,7 @@ cd makini-university-api
         }
 
 ### Invalid Payment Method
--   POST `http://localhost:8080/api/payments/notification`
-
+-   `http://localhost:8080/api/payments/notification`
 -       {
             "transactionId": "TX006",
             "studentNumber": "STU001",
@@ -174,8 +170,7 @@ cd makini-university-api
         }
 
 ### Negative Amount
--   POST `http://localhost:8080/api/payments/notification`
-
+-   `http://localhost:8080/api/payments/notification`
 -       {
             "transactionId": "TX006",
             "studentNumber": "STU001",
@@ -184,17 +179,20 @@ cd makini-university-api
             "status": "SUCCESS"
         }
 
-### Query Payments by Student
--     GET http://localhost:8080/api/payments?studentNumber=STU001
 
-### Query Payments by Method
- -     GET http://localhost:8080/api/payments?paymentMethod=MPESA
+### GET endpoints: 
 
-### Query No Payments
--       GET http://localhost:8080/api/payments?studentNumber=STU003
+#### Query Payments by Student
+-     http://localhost:8080/api/payments?studentNumber=STU001
 
-### Query with Pagination
--       GET http://localhost:8080/api/payments?studentNumber=STU001&page=0&size=1
+#### Query Payments by Method
+-     http://localhost:8080/api/payments?paymentMethod=MPESA
 
-### Query No Filters
--       GET http://localhost:8080/api/payments
+#### Query No Payments
+-     http://localhost:8080/api/payments?studentNumber=STU003
+
+#### Query with Pagination
+-     http://localhost:8080/api/payments?studentNumber=STU001&page=0&size=1
+
+#### Query No Filters
+-     http://localhost:8080/api/payments
