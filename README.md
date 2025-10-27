@@ -6,7 +6,7 @@ This project provides a REST API for Makini University to integrate with Cellula
 - Querying payments by student number, payment method, or both, with pagination.
 - File-based H2 database with automatic schema and data initialization on each startup.
 
-The API uses Spring Boot 3.1.0, Java 17, H2 database, and Lombok, with best practices for error handling, logging, and data validation.
+The API uses Spring Boot 3.1.0, Java 17, H2 database, and Lombok, with error handling, logging, and data validation.
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
@@ -35,7 +35,7 @@ The project uses the following Maven dependencies (defined in `pom.xml`):
 
 See `pom.xml` for full details.
 
-## Installation
+<!-- ## Installation
 Ensure Java 17 and Maven are installed and working.
 
 1. **Clone repo**:
@@ -47,7 +47,7 @@ Ensure Java 17 and Maven are installed and working.
 3. **Install & run the API**:
    - `mvn clean install`
    - `mvn spring-boot:run`
-
+ -->
 
 
 ## Project Structure
@@ -196,3 +196,8 @@ cd makini-university-api
 
 #### Query No Filters
 -     http://localhost:8080/api/payments
+
+
+## Note
+
+- I used an in memory database with seeded sample data to use to simulate validation.
