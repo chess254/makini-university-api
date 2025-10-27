@@ -19,7 +19,7 @@ The API uses Spring Boot 3.1.0, Java 17, H2 database, and Lombok, with error han
 
 ## Prerequisites
 Ensure you have the following installed:
-- **Java 17 (OpenJDK)**: Download from [Adoptium](https://adoptium.net/). Set `JAVA_HOME` environment variable.
+- **Java 17 (OpenJDK)**: Download from [Adoptium](https://adoptium.net/temurin/releases?version=17&os=any&arch=any). Set `JAVA_HOME` environment variable.
 - **Maven**: Download from [Maven](https://maven.apache.org/) and add to PATH.
 - **Git**: For cloning the repository.
 - **curl** (or any prefered means): For testing APIs.
